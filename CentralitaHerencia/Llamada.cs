@@ -44,6 +44,10 @@ namespace CentralitaHerencia
         public void Mostrar()
         { 
             //Utiliza stringBuilder
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Llamada de " + this.NroOrigen + " a " + this.NroDestino + ".");
+            sb.AppendLine("Duracion: " + this.Duracion + " segundos.");
+            Console.Write(sb);
         }
 
         public static int ordenarPorDuracion(Llamada llamadaUno, Llamada llamadaDos)

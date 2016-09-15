@@ -32,12 +32,36 @@ namespace CentralitaHerencia
         
         public float calcularCosto()
         {
-            return 0;
+            return ((this.CostoPorMinuto() / 60) * this._duracion); // el precio por minuto /60 me da el precio del segundo.
         }
 
-        public void mostrar()
-        { 
-            
+        public float CostoPorMinuto()
+        {
+            float r = 0;
+            switch ((int)this._franjaHoraria) // ubiese sido mas facil con constantes en ves de enumerados. 
+            {
+                case 0:
+                    r = 0.99f;
+                    break;
+                case 1:
+                    r = 1.25f;
+                    break;
+                case 2:
+                    r = 0.66f;
+                    break;
+            }
+            return r;
+        }
+
+        public void Mostrar()
+        {
+            base.Mostrar(); // funciono :D
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Franja horaria " + this._franjaHoraria + ".");
+            sb.AppendLine("Costo por minuto: " + this.CostoPorMinuto());
+            sb.AppendLine("Costo de llamada: " + this.CostoLlamada);
+            sb.AppendLine("---------------------------------------------------------------------");
+            Console.Write(sb);
         }
 
     
