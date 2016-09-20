@@ -56,10 +56,12 @@ namespace CentralitaHerencia
         private float CalcularGanancia(TipoLlamada tipo)
         {
             float r = 0;
+            Provincial prov;
+            Local loc;
+
             switch ((int)tipo)
             {
                 case 0:
-                    Local loc;
                     foreach (var item in _listaDeLlamadas)
                     {
                         if (item.GetType() == typeof(Local))
@@ -70,7 +72,6 @@ namespace CentralitaHerencia
                     }
                         break;
                 case 1:
-                    Provincial prov;
                     foreach (var item in _listaDeLlamadas)
                     {
                         if (item.GetType() == typeof(Provincial))
@@ -81,10 +82,22 @@ namespace CentralitaHerencia
                     }
                         break;
                 case 2:
-                    
+                    foreach (var item in _listaDeLlamadas)
+                    {
+                        if (item.GetType() == typeof(Provincial))
+                        {
+                            prov = (Provincial)item;
+                            r += prov.CostoLlamada;
+                        }
+                        else if (item.GetType() == typeof(Local))
+                        {
+                            loc = (Local)item;
+                            r += loc.CostoLlamada;
+                        }
+                    }
                         break;
             }
-            return 0;
+            return r;
         }
 
 

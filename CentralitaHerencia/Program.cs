@@ -26,14 +26,17 @@ namespace CentralitaHerencia
             miCentralita._listaDeLlamadas.Add(miLocal2);
             miCentralita._listaDeLlamadas.Add(miProvincial2);
 
-
-
-
+            miLocal.Mostrar();
+            miLocal2.Mostrar();
+            miProvincial.Mostrar();
+            miProvincial2.Mostrar();
 
             Console.WriteLine(miCentralita.GananciaPorLocal);
+            Console.WriteLine(miCentralita.GananciaPorProvincial);
+            Console.WriteLine(miCentralita.GananciaPorTotal);
 
-            miLocal.Mostrar();
-            miProvincial.Mostrar();
+           // miLocal.Mostrar();
+            //miProvincial.Mostrar();
             Console.ReadLine();
         }
     }
